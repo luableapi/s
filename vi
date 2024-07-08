@@ -251,16 +251,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 end
             end
         end
-        _G.FastAttack = true
-        spawn(function()
-            pcall(function()
-            while task.wait(0.25) do
-                if _G.FastAttack then
-                    AttackFunction()
-                   end
-                end
-            end)
-        end)
 
 	repeat wait(0) until game:IsLoaded()
 	if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")  then
@@ -12709,6 +12699,7 @@ task.spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
         if  _G.FastAttack then
             if SeraphFrame.activeController then
+				AttackFunction()
                 CameraShakerR:Stop()
                   SeraphFrame.activeController.attacking = false
                     SeraphFrame.activeController.timeToNextBlock = 0
